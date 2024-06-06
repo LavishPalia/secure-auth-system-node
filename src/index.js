@@ -9,9 +9,13 @@ dotenv.config({
 
 await connectDB();
 
+import userRoutes from "./routes/user.routes.js";
+
+app.use("/api/v1/users", userRoutes);
 
 app.use(errorHandler);
 
-app.listen(process.env.PORT,
+app.listen(
+  process.env.PORT,
   console.log(`server is running on port ${process.env.PORT}`)
 );
